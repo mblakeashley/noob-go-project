@@ -12,7 +12,7 @@ func main() {
 	//Checking Cluster Status
 	out, err := exec.Command("kubectl", "cluster-info", "--context", "kind-kind").Output()
 	if err != nil {
-		fmt.Println("Kind cluster does not exist, will deploy cluster..." + "\n")
+		fmt.Println("Kind cluster does not exist, will deploy cluster...")
 		output := string(out[:])
 		fmt.Println(output)
 
@@ -31,7 +31,7 @@ func main() {
 				output := string(out[:])
 				fmt.Println(output)
 			} else {
-				fmt.Println("+ Make Build Completed!")
+				fmt.Println("+ Make Build Complete!")
 			}
 			fmt.Println("- Running Terraform Init... ")
 			out, err = exec.Command("make", "init").Output()
@@ -39,7 +39,15 @@ func main() {
 				output := string(out[:])
 				fmt.Println(output)
 			} else {
-				fmt.Println("+ Init Completed!")
+				fmt.Println("+ Init Complete!")
+			}
+			fmt.Println("- Running Terraform Plan... ")
+			out, err = exec.Command("make", "plan").Output()
+			if err != nil {
+				output := string(out[:])
+				fmt.Println(output)
+			} else {
+				fmt.Println("+ Plan Complete!")
 			}
 			fmt.Println("- Running Terraform Apply... (Grab a cup of coffee, this will take a few minutes to complete.) ")
 			out, err = exec.Command("make", "apply").Output()
@@ -47,7 +55,7 @@ func main() {
 				output := string(out[:])
 				fmt.Println(output)
 			} else {
-				fmt.Println("+ Apply Completed!")
+				fmt.Println("+ Apply Complete!")
 			}
 			fmt.Println("- Applying Kube Patch Configs... ")
 			out, err = exec.Command("sh", "kubectl_patch.sh").Output()
@@ -55,6 +63,7 @@ func main() {
 				output := string(out[:])
 				fmt.Println(output)
 			} else {
+				fmt.Println("+ Kube Patch Complete!")
 				fmt.Println("+ -------- Infra Setup Complete -------- +" + "\n")
 				fmt.Println("Run: 'kubectl get pods --all-namespaces' to view pods that are running in the cluster")
 			}
@@ -84,7 +93,7 @@ func main() {
 				output := string(out[:])
 				fmt.Println(output)
 			} else {
-				fmt.Println("+ Make Build Completed!")
+				fmt.Println("+ Make Build Complete!")
 			}
 			fmt.Println("- Running Terraform Init... ")
 			out, err = exec.Command("make", "init").Output()
@@ -92,7 +101,15 @@ func main() {
 				output := string(out[:])
 				fmt.Println(output)
 			} else {
-				fmt.Println("+ Init Completed!")
+				fmt.Println("+ Init Complete!")
+			}
+			fmt.Println("- Running Terraform Plan... ")
+			out, err = exec.Command("make", "plan").Output()
+			if err != nil {
+				output := string(out[:])
+				fmt.Println(output)
+			} else {
+				fmt.Println("+ Plan Complete!")
 			}
 			fmt.Println("- Running Terraform Apply... (Grab a cup of coffee, this will take a few minutes to complete.) ")
 			out, err = exec.Command("make", "apply").Output()
@@ -100,7 +117,7 @@ func main() {
 				output := string(out[:])
 				fmt.Println(output)
 			} else {
-				fmt.Println("+ Apply Completed!")
+				fmt.Println("+ Apply Complete!")
 			}
 			fmt.Println("- Applying Kube Patch Configs... ")
 			out, err = exec.Command("sh", "kubectl_patch.sh").Output()
@@ -108,6 +125,7 @@ func main() {
 				output := string(out[:])
 				fmt.Println(output)
 			} else {
+				fmt.Println("+ Kube Patch Complete!")
 				fmt.Println("+ -------- Infra Setup Complete -------- +" + "\n")
 				fmt.Println("Run: 'kubectl get pods --all-namespaces' to view pods that are running in the cluster")
 			}

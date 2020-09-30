@@ -37,12 +37,15 @@ Thanks for using kind! 😊
 
 + -------- Starting Infra Setup -------- +
 - Running Make Build...
-+ Make Build Completed!
++ Make Build Complete!
 - Running Terraform Init... 
-+ Init Completed!
++ Init Complete!
+- Running Terraform Plan... 
++ Plan Complete!
 - Running Terraform Apply... (Grab a cup of coffee, this will take a few minutes to complete.) 
-+ Apply Completed!
++ Apply Complete!
 - Applying Kube Patch Configs... 
++ Kube Patch Complete!
 + -------- Infra Setup Complete -------- +
 
 Run: 'kubectl get pods --all-namespaces' to view pods that are running in the cluster
