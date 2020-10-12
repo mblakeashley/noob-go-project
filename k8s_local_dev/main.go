@@ -58,7 +58,7 @@ func main() {
 				fmt.Println("+ Apply Complete!")
 			}
 			fmt.Println("- Applying Kube Patch Configs... ")
-			out, err = exec.Command("sh", "kubectl_patch.sh").Output()
+			out, err = exec.Command("sh", "infra/scripts/kubectl_patch.sh").Output()
 			if err != nil {
 				output := string(out[:])
 				fmt.Println(output)
@@ -120,7 +120,7 @@ func main() {
 				fmt.Println("+ Apply Complete!")
 			}
 			fmt.Println("- Applying Kube Patch Configs... ")
-			out, err = exec.Command("sh", "kubectl_patch.sh").Output()
+			out, err = exec.Command("sh", "infra/scripts/kubectl_patch.sh").Output()
 			if err != nil {
 				output := string(out[:])
 				fmt.Println(output)

@@ -8,7 +8,9 @@ nodes:
   - containerPort: 31448
     hostPort: 31448
   - containerPort: 31349
-    hostPort: 31349        
-    listenAddress: "0.0.0.0" # Optional, defaults to "0.0.0.0"
+    hostPort: 31349
+  - containerPort: 31902
+    hostPort: 31902       
+    listenAddress: "127.0.0.1" # Optional, defaults to "0.0.0.0"
     protocol: tcp # Optional, defaults to tcp
 - role: worker

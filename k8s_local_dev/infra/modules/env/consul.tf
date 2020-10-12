@@ -3,6 +3,10 @@ resource "helm_release" "consul" {
   chart     = "hashicorp/consul"
   namespace = "default"
 
+  provisioner "local-exec" {
+    command = "sh infra/scripts/get-consul-ip.sh"
+  }
+
   set {
     name  = "server.replicas"
     value = 1
